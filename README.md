@@ -39,8 +39,7 @@ npx http-server -p 8000
 http://localhost:8000/baseball.html
 
 # web example
-![alt text][screen_shot]
-[screen_shot]: screenshot.jpg "Screen Shot"
+![Screen Shot](screen_shot)
 
 [http:](https://wdings23.github.io/baseball.html)()
 

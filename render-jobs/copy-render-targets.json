@@ -1,0 +1,55 @@
+{
+    "Type": "Copy",
+    "PassType": "Copy",
+    "Attachments": [
+        {
+            "Name": "Previous Mask And Clip Space Output",
+            "Type": "TextureOutput",
+            "ParentJobName": "Skin Mesh From Compute Graphics",
+            "ParentName": "Mask And Clip Space Output"
+        },
+        {
+            "Name": "Previous Motion Vector Output",
+            "Type": "TextureOutput",
+            "ParentJobName": "Skin Mesh From Compute Graphics",
+            "ParentName": "Motion Vector Output"
+        },
+       
+        {
+            "Name": "Previous Skinned Mesh Vertices",
+            "Type": "BufferOutput",
+            "ParentJobName": "Skin Mesh Compute",
+            "ParentName": "Skinned Mesh Vertices"
+        },
+
+        {
+            "Name": "Previous Indirect Lighting Output",
+            "Type": "TextureOutput",
+            "ParentJobName": "Ambient Occlusion Graphics",
+            "ParentName": "Indirect Lighting Output"
+        },
+        {
+            "Name": "Previous Ambient Occlusion Output",
+            "Type": "TextureOutput",
+            "ParentJobName": "Ambient Occlusion Graphics",
+            "ParentName": "Ambient Occlusion Output"
+        },
+
+        {
+            "Name": "Previous Filtered Indirect Lighting Output",
+            "Type": "TextureOutput",
+            "ParentJobName": "Bilateral Filter Indirect Lighting Graphics",
+            "ParentName": "Bilateral Filtered Output"
+        },
+        {
+            "Name": "Previous TAA Output",
+            "Type": "TextureOutput",
+            "ParentJobName": "TAA Graphics",
+            "ParentName": "TAA Output"
+        }
+
+
+
+    ]
+}
+        

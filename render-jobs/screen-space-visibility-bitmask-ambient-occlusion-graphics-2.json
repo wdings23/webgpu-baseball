@@ -1,0 +1,76 @@
+{
+    "Type": "Graphics",
+    "PassType": "Full Triangle",
+    "Shader": "screen-space-visiblity-bitmask-ambient-occlusion-graphics.shader",
+    "Attachments": [
+        {
+            "Name": "Ambient Occlusion Output",
+            "Type": "TextureOutput",
+            "Format": "rgba16float",
+            "ScaleWidth": 0.5,
+            "ScaleHeight": 0.5
+        },
+        {
+            "Name": "Indirect Lighting Output",
+            "Type": "TextureOutput",
+            "Format": "rgba16float",
+            "ScaleWidth": 0.5,
+            "ScaleHeight": 0.5
+        },
+
+        {
+            "Name" : "World Position Output",
+            "Type": "TextureInput",
+            "ParentJobName": "Skin Mesh From Compute Graphics"
+        },
+        {
+            "Name" : "Normal Output",
+            "Type": "TextureInput",
+            "ParentJobName": "Skin Mesh From Compute Graphics"
+        },
+        {
+            "Name" : "Texture Coordinate Output",
+            "Type": "TextureInput",
+            "ParentJobName": "Skin Mesh From Compute Graphics"
+        },
+        {
+            "Name" : "Albedo Output",
+            "Type": "TextureInput",
+            "ParentJobName": "Skin Mesh From Compute Graphics"
+        }
+    ],
+    "ShaderResources": [
+        { 
+            "name" : "uniformData",
+            "type" : "buffer",
+            "size" : 2048,
+            "shader_stage" : "all",
+            "usage": "uniform"
+        },
+        { 
+            "name" : "blueNoiseBuffer",
+            "type" : "buffer",
+            "shader_stage" : "all",
+            "usage": "read_only_storage",
+            "external": "true"
+        }    
+    ],
+    "BlendStates": [
+        {
+            "Enabled": "True"
+        }
+    ],
+    "DepthStencilState":
+    {
+        "DepthEnable": "False",
+        "DepthWriteMask": "One",
+        "DepthFunc": "LessEqual",
+        "StencilEnable": "False"
+    },
+    "RasterState":
+    {
+        "FillMode": "Solid",
+        "CullMode": "None",
+        "FrontFace": "CounterClockwise"
+    }
+}

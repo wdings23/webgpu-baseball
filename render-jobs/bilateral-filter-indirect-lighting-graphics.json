@@ -1,0 +1,78 @@
+{
+    "Type": "Graphics",
+    "PassType": "Full Triangle",
+    "Shader": "bilateral-filter-graphics.shader",
+    "Attachments": [
+        {
+            "Name": "Bilateral Filtered Output",
+            "Type": "TextureOutput",
+            "Format": "rgba32float",
+            "ScaleWidth": 0.5,
+            "ScaleHeight": 0.5
+        },
+
+        
+        {
+            "Name" : "Indirect Lighting Output",
+            "Type": "TextureInput",
+            "ParentJobName": "Ambient Occlusion Graphics"
+        },
+        {
+            "Name" : "Normal Output",
+            "Type": "TextureInput",
+            "ParentJobName": "Skin Mesh From Compute Graphics"
+        }
+        
+        
+    ],
+    "ShaderResources": [
+        {
+            "name" : "filterConstantBuffer",
+            "type": "buffer",
+            "shader_stage" : "all",
+            "usage": "constant_buffer",
+            "size": 64,
+            "data": 
+            [
+                {   
+                    "type": "float",
+                    "value": 1.0
+                },
+                {   
+                    "type": "float",
+                    "value": 0.1
+                },
+                {
+                    "name": "radius",
+                    "type": "float",
+                    "value": 8.0
+                }
+            ]
+        }
+    ],
+    "BlendStates": [
+        {
+            "Enabled": "True"
+        }
+    ],
+    "DepthStencilState":
+    {
+        "DepthEnable": "True",
+        "DepthWriteMask": "One",
+        "DepthFunc": "LessEqual",
+        "StencilEnable": "False"
+    },
+    "RasterState":
+    {
+        "FillMode": "Solid",
+        "CullMode": "None",
+        "FrontFace": "CounterClockwise"
+    },
+    "VertexFormat":
+    [
+        "Vec4",
+        "Vec4",
+        "Vec4"
+    ],
+    "UseGlobalTextures": "True"
+}

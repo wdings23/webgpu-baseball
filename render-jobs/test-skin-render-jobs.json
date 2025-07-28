@@ -1,0 +1,142 @@
+{
+    "Jobs" :
+    [
+        {
+            "Name": "Skin Mesh Compute",
+            "Pipeline": "skin-mesh-compute.json",
+            "Type": "Compute",
+            "PassType": "Compute",
+            "Dispatch": [256, 1, 1]
+        },
+        {
+            "Name": "Mesh Culling Compute",
+            "Pipeline": "mesh-culling-compute.json",
+            "Type": "Compute",
+            "PassType": "Compute"
+        },
+        {
+            "Name": "Atmosphere Graphics",
+            "Pipeline": "atmosphere-graphics.json",
+            "Type": "Graphics",
+            "PassType": "Full Triangle"
+        },
+        {
+            "Name": "Sky Convolution Graphics",
+            "Pipeline": "sky-convolution-graphics.json",
+            "Type": "Graphics",
+            "PassType": "Full Triangle"
+        },
+        {
+            "Name": "Skin Mesh From Compute Graphics",
+            "Pipeline": "skin-mesh-from-compute-graphics.json",
+            "Type": "Graphics",
+            "PassType": "Draw Animated Meshes"
+        },
+        {
+            "Name": "Light View Skin Mesh Graphics 0",
+            "Pipeline": "light-view-skin-mesh-graphics-0.json",
+            "Type": "Graphics",
+            "PassType": "Draw Animated Meshes"
+        },
+        {
+            "Name": "Light View Skin Mesh Graphics 1",
+            "Pipeline": "light-view-skin-mesh-graphics-1.json",
+            "Type": "Graphics",
+            "PassType": "Draw Animated Meshes"
+        },
+        {
+            "Name": "Light View Skin Mesh Graphics 2",
+            "Pipeline": "light-view-skin-mesh-graphics-2.json",
+            "Type": "Graphics",
+            "PassType": "Draw Animated Meshes"
+        },
+        {
+            "Name": "Light View Deferred Graphics 0",
+            "Pipeline": "light-view-deferred-graphics-0.json",
+            "Type": "Graphics",
+            "PassType": "Draw Meshes"
+        },
+        {
+            "Name": "Light View Deferred Graphics 1",
+            "Pipeline": "light-view-deferred-graphics-1.json",
+            "Type": "Graphics",
+            "PassType": "Draw Meshes"
+        },
+        {
+            "Name": "Light View Deferred Graphics 2",
+            "Pipeline": "light-view-deferred-graphics-2.json",
+            "Type": "Graphics",
+            "PassType": "Draw Meshes"
+        },
+        {
+            "Name": "Deferred Graphics",
+            "Pipeline": "deferred.json",
+            "Type": "Graphics",
+            "PassType": "Draw Meshes"
+        },
+        {
+            "Name": "Shadow Graphics",
+            "Pipeline": "shadow-graphics.json",
+            "Type": "Graphics",
+            "PassType": "Full Triangle"
+        },
+        {
+            "Name": "Lighting Graphics",
+            "Pipeline": "lighting-graphics.json",
+            "Type": "Graphics",
+            "PassType": "Full Triangle"
+        },
+        {
+            "Name": "Ambient Occlusion Graphics",
+            "Pipeline": "screen-space-visibility-bitmask-ambient-occlusion-graphics-2.json",
+            "Type": "Graphics",
+            "PassType": "Full Triangle"
+        },
+        {
+            "Name": "Temporal Accumulation Graphics",
+            "Pipeline": "temporal-accumulation-graphics.json",
+            "Type": "Graphics",
+            "PassType": "Full Triangle"
+        },
+
+        {
+            "Name": "Bilateral Filter Indirect Lighting Graphics",
+            "Pipeline": "bilateral-filter-indirect-lighting-graphics.json",
+            "Type": "Graphics",
+            "PassType": "Full Triangle"
+        },
+        {
+            "Name": "Bilateral Filter Ambient Occlusion Graphics",
+            "Pipeline": "bilateral-filter-ambient-occlusion-graphics.json",
+            "Type": "Graphics",
+            "PassType": "Full Triangle"
+        },
+        {
+            "Name": "Bilateral Filter Shadow Graphics",
+            "Pipeline": "bilateral-filter-shadow-graphics.json",
+            "Type": "Graphics",
+            "PassType": "Full Triangle"
+        },
+
+        {
+            "Name": "Final Composite Graphics",
+            "Pipeline": "final-composite-graphics.json",
+            "Type": "Graphics",
+            "PassType": "Full Triangle"
+        },
+
+        {
+            "Name": "TAA Graphics",
+            "Pipeline": "taa-graphics.json",
+            "Type": "Graphics",
+            "PassType": "Full Triangle"
+        },
+
+        {
+            "Name": "Copy Render Targets",
+            "Pipeline": "copy-render-targets.json",
+            "Type": "Copy",
+            "PassType": "Copy"
+        }
+    ]
+}

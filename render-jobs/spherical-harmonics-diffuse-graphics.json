@@ -1,0 +1,108 @@
+{
+    "Type": "Graphics",
+    "PassType": "Draw Animated Graphics",
+    "Shader": "spherical-harmonics-diffuse-graphics.shader",
+    "Attachments": [
+        {
+            "Name" : "Diffuse SH Coefficients 0 Output",
+            "Type": "TextureOutput",
+            "Format": "rgba32float"
+        },
+        {
+            "Name" : "Diffuse SH Coefficients 1 Output",
+            "Type": "TextureOutput",
+            "Format": "rgba32float"
+        },
+        {
+            "Name" : "Diffuse SH Coefficients 2 Output",
+            "Type": "TextureOutput",
+            "Format": "rgba32float"
+        },
+        {
+            "Name" : "Decoded Output",
+            "Type": "TextureOutput",
+            "Format": "rgba32float"
+        },
+
+
+
+        {
+            "Name" : "World Position Output",
+            "Type": "TextureInput",
+            "ParentJobName": "Skin Mesh From Compute Graphics"
+        },
+        {
+            "Name" : "Normal Output",
+            "Type": "TextureInput",
+            "ParentJobName": "Skin Mesh From Compute Graphics"
+        },
+        {
+            "Name" : "Sky Output",
+            "Type": "TextureInput",
+            "ParentJobName": "Atmosphere Graphics"
+        },
+
+        {
+            "Name" : "Previous Diffuse SH Coefficients 0 Output",
+            "Type": "TextureInput",
+            "ParentJobName": "Copy Render Targets"
+        },
+        {
+            "Name" : "Previous Diffuse SH Coefficients 1 Output",
+            "Type": "TextureInput",
+            "ParentJobName": "Copy Render Targets"
+        },
+        {
+            "Name" : "Previous Diffuse SH Coefficients 2 Output",
+            "Type": "TextureInput",
+            "ParentJobName": "Copy Render Targets"
+        },
+        {
+            "Name" : "Previous Diffuse Decoded SH Output",
+            "Type": "TextureInput",
+            "ParentJobName": "Copy Render Targets"
+        }
+    ],
+    "ShaderResources": [
+        { 
+            "name": "blueNoiseBuffer",
+            "type": "buffer",
+            "shader_stage": "all",
+            "usage": "read_only_storage",
+            "external": "true"
+        },
+        {
+            "name" : "shadowUniformBuffer",
+            "type": "buffer",
+            "shader_stage" : "vertex",
+            "usage": "read_only_storage",
+            "external": "true"
+        }
+        
+    ],
+    "BlendStates": [
+        {
+            "Enabled": "True"
+        }
+    ],
+    "DepthStencilState":
+    {
+        "DepthEnable": "True",
+        "DepthWriteMask": "One",
+        "DepthFunc": "LessEqual",
+        "StencilEnable": "False"
+    },
+    "RasterState":
+    {
+        "FillMode": "Solid",
+        "CullMode": "None",
+        "FrontFace": "CounterClockwise"
+    },
+    "VertexFormat":
+    [
+        "Vec4",
+        "Vec4",
+        "Vec4"
+    ],
+    "UseGlobalTextures": "True"
+}

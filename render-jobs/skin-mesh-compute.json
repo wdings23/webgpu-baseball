@@ -1,0 +1,64 @@
+{
+    "Type": "Compute",
+    "PassType": "Compute",
+    "Shader": "skin-mesh-compute.shader",
+    "Attachments": [
+        {
+            "Name" : "Skinned Mesh Vertices",
+            "Type": "BufferOutput",
+            "Size": 10000000,
+            "Usage": "Vertex"
+        }
+    ],
+    "ShaderResources": [
+        {
+            "name": "total-anim-mesh-vertex-buffer",
+            "type": "buffer",
+            "shader_stage": "all",
+            "usage": "vertex",
+            "external": "true"
+        },
+        { 
+            "name": "total-influence-joint-indices",
+            "type": "buffer",
+            "shader_stage": "all",
+            "usage": "read_only_storage",
+            "external": "true"
+        },
+        { 
+            "name": "total-influence-joint-weights",
+            "type": "buffer",
+            "shader_stage": "all",
+            "usage": "read_only_storage",
+            "external": "true"
+        },
+        { 
+            "name": "total-joint-global-animation-matrices",
+            "type": "buffer",
+            "shader_stage": "all",
+            "usage": "read_only_storage",
+            "external": "true"
+        },
+        { 
+            "name": "total-joint-matrix-start-indices",
+            "type": "buffer",
+            "shader_stage": "all",
+            "usage": "read_only_storage",
+            "external": "true"
+        },
+        { 
+            "name": "match-vertex-range-to-anim-mesh-instance",
+            "type": "buffer",
+            "shader_stage": "all",
+            "usage": "read_only_storage",
+            "external": "true"
+        },
+        { 
+            "name": "skinMeshUniformBuffer",
+            "type": "buffer",
+            "shader_stage": "all",
+            "usage": "read_only_storage",
+            "external": "true"
+        }
+    ]
+}

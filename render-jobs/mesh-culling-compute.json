@@ -1,0 +1,62 @@
+{
+    "Type": "Compute",
+    "PassType": "Compute",
+    "Shader": "mesh-culling-compute.shader",
+    "Emscripten Shader": "mesh-culling-compute.shader",
+    "Attachments": [
+        {
+            "Name" : "Draw Calls",
+            "Type": "BufferOutput",
+            "Size": 10000000,
+            "Usage": "Indirect"
+        },
+        {
+            "Name" : "Num Draw Calls",
+            "Type": "BufferOutput",
+            "Size": 1024,
+            "Usage": "Indirect"
+        },
+        {
+            "Name" : "Visible Mesh IDs",
+            "Type": "BufferOutput",
+            "Size": 1048576
+        }
+    ],
+    "ShaderResources": [
+        { 
+            "name" : "meshCullingUniformBuffer",
+            "type" : "buffer",
+            "shader_stage" : "all",
+            "usage": "read_only_storage",
+            "external": "true"
+        },
+        {
+            "name": "meshTriangleIndexRanges",
+            "type": "buffer",
+            "shader_stage": "all",
+            "usage": "read_only_storage",
+            "external": "true"
+        },
+        {
+            "name": "meshExtents",
+            "type": "buffer",
+            "shader_stage": "all",
+            "usage": "read_only_storage",
+            "external": "true"
+        },
+        {
+            "name" : "staticMeshModelMatrices",
+            "type": "buffer",
+            "shader_stage" : "vertex",
+            "usage": "read_only_storage",
+            "external": "true"
+        },
+        {
+            "name": "meshInstanceModelMapping",
+            "type": "buffer",
+            "shader_stage": "all",
+            "usage": "read_only_storage",
+            "external": "true"
+        }
+    ]
+}

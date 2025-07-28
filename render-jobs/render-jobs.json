@@ -1,0 +1,60 @@
+{
+    "Jobs" :
+    [
+        {
+            "Name": "Skin Mesh Graphics",
+            "Pipeline": "skin-mesh-graphics.json",
+            "Type": "Graphics",
+            "PassType": "Draw Meshes"
+        },
+        {
+            "Name": "Mesh Culling Compute",
+            "Pipeline": "mesh-culling-compute.json",
+            "Type": "Compute",
+            "PassType": "Compute",
+            "Dispatch": [1024, 1, 1]
+        },
+        {
+            "Name": "Deferred Indirect Graphics",
+            "Pipeline": "deferred.json",
+            "Type": "Graphics",
+            "PassType": "Draw Meshes"
+        },
+        {
+            "Name": "Mesh Selection Graphics",
+            "Pipeline": "mesh-selection-graphics.json",
+            "Type": "Graphics",
+            "PassType": "Full Triangle"
+        },
+        {
+            "Name": "PBR Graphics",
+            "Pipeline": "pbr-graphics.json",
+            "Type": "Graphics",
+            "PassType": "Full Triangle"
+        },
+        {
+            "Name": "Ambient Occlusion Graphics",
+            "Pipeline": "screen-space-visibility-bitmask-ambient-occlusion-graphics.json",
+            "Type": "Graphics",
+            "PassType": "Full Triangle"
+        },
+        {
+            "Name": "Composite Graphics",
+            "Pipeline": "composite-graphics.json",
+            "Type": "Graphics",
+            "PassType": "Full Triangle"
+        },
+        {
+            "Name": "TAA Graphics",
+            "Pipeline": "taa-graphics.json",
+            "Type": "Graphics",
+            "PassType": "Full Triangle"
+        },
+        {
+            "Name": "Copy Render Targets",
+            "Pipeline": "copy-render-targets.json",
+            "Type": "Copy",
+            "PassType": "Copy"
+        }
+    ]
+}

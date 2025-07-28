@@ -1,0 +1,49 @@
+{
+    "Type": "Graphics",
+    "PassType": "Full Triangle",
+    "Shader": "atmosphere-graphics.shader",
+    "Attachments": [
+        {
+            "Name" : "Sky Output",
+            "Type": "TextureOutput",
+            "Format": "rgba32float",
+            "ScaleWidth": 0.25,
+            "ScaleHeight": 0.25
+        },
+        {
+            "Name" : "Sun Light Output",
+            "Type": "TextureOutput",
+            "Format": "rgba32float",
+            "ScaleWidth": 0.25,
+            "ScaleHeight": 0.25
+        }
+
+    ],
+    "ShaderResources": [   
+        { 
+            "name" : "uniformData",
+            "type" : "buffer",
+            "size" : 256,
+            "shader_stage" : "fragment",
+            "usage": "read_write_storage"
+        }
+    ],
+    "BlendStates": [
+        {
+            "Enabled": "True"
+        }
+    ],
+    "DepthStencilState":
+    {
+        "DepthEnable": "False",
+        "DepthWriteMask": "One",
+        "DepthFunc": "LessEqual",
+        "StencilEnable": "False"
+    },
+    "RasterState":
+    {
+        "FillMode": "Solid",
+        "CullMode": "None",
+        "FrontFace": "CounterClockwise"
+    }
+}

@@ -1,0 +1,95 @@
+{
+    "Type": "Graphics",
+    "PassType": "Full Triangle",
+    "Shader": "shadow-graphics.shader",
+    "Attachments": [
+        {
+            "Name" : "Shadow Output",
+            "Type": "TextureOutput",
+            "Format": "rgba32float"
+        },
+        {
+            "Name" : "Decal Output",
+            "Type": "TextureOutput",
+            "Format": "rgba32float"
+        },
+
+        {
+            "Name" : "World Position Output",
+            "Type": "TextureInput",
+            "ParentJobName": "Skin Mesh From Compute Graphics"
+        },
+        {
+            "Name": "Light View Clip Space Position Output 0",
+            "Type": "TextureInput",
+            "ParentJobName": "Light View Skin Mesh Graphics 0"
+        },
+        {
+            "Name": "Light View Clip Space Position Output 1",
+            "Type": "TextureInput",
+            "ParentJobName": "Light View Skin Mesh Graphics 1"
+        },
+        {
+            "Name": "Light View Clip Space Position Output 2",
+            "Type": "TextureInput",
+            "ParentJobName": "Light View Skin Mesh Graphics 2"
+        },
+
+        {
+            "Name": "Light View Moments Output 0",
+            "Type": "TextureInput",
+            "ParentJobName": "Light View Skin Mesh Graphics 0"
+        },
+        {
+            "Name": "Light View Moments Output 1",
+            "Type": "TextureInput",
+            "ParentJobName": "Light View Skin Mesh Graphics 1"
+        },
+        {
+            "Name": "Light View Moments Output 2",
+            "Type": "TextureInput",
+            "ParentJobName": "Light View Skin Mesh Graphics 2"
+        }
+    ],
+    "ShaderResources": [
+        {
+            "name" : "shadowUniformBuffer",
+            "type": "buffer",
+            "shader_stage" : "all",
+            "usage": "read_only_storage",
+            "external": "true"
+        },
+        {
+            "name" : "decalTexture",
+            "type": "texture",
+            "shader_stage" : "all",
+            "usage": "read_only_storage",
+            "external": "true"
+        }
+    ],
+    "BlendStates": [
+        {
+            "Enabled": "False"
+        }
+    ],
+    "DepthStencilState":
+    {
+        "DepthEnable": "True",
+        "DepthWriteMask": "One",
+        "DepthFunc": "LessEqual",
+        "StencilEnable": "False"
+    },
+    "RasterState":
+    {
+        "FillMode": "Solid",
+        "CullMode": "None",
+        "FrontFace": "CounterClockwise"
+    },
+    "VertexFormat":
+    [
+        "Vec4",
+        "Vec4",
+        "Vec4"
+    ],
+    "UseGlobalTextures": "True"
+}

@@ -1,0 +1,82 @@
+{
+    "Type": "Graphics",
+    "PassType": "Draw Animated Graphics",
+    "Shader": "lighting-graphics.shader",
+    "Attachments": [
+        {
+            "Name" : "Diffuse Lighting Output",
+            "Type": "TextureOutput",
+            "Format": "rgba32float"
+        },
+        {
+            "Name" : "Specular Lighting Output",
+            "Type": "TextureOutput",
+            "Format": "rgba32float"
+        },
+        {
+            "Name" : "Ambient Lighting Output",
+            "Type": "TextureOutput",
+            "Format": "rgba32float"
+        },
+        
+        {
+            "Name" : "World Position Output",
+            "Type": "TextureInput",
+            "ParentJobName": "Skin Mesh From Compute Graphics"
+        },
+        {
+            "Name" : "Normal Output",
+            "Type": "TextureInput",
+            "ParentJobName": "Skin Mesh From Compute Graphics"
+        },
+        {
+            "Name" : "Albedo Output",
+            "Type": "TextureInput",
+            "ParentJobName": "Skin Mesh From Compute Graphics"
+        },
+        {
+            "Name" : "Convoluted Output",
+            "Type": "TextureInput",
+            "ParentJobName": "Sky Convolution Graphics"
+        },
+        {
+            "Name" : "Mask And Clip Space Output",
+            "Type": "TextureInput",
+            "ParentJobName": "Skin Mesh From Compute Graphics"
+        }
+    ],
+    "ShaderResources": [
+        {
+            "name": "lightingUniformBuffer",
+            "type": "buffer",
+            "shader_stage": "all",
+            "usage": "read_only_storage",
+            "external": "true"
+        }
+    ],
+    "BlendStates": [
+        {
+            "Enabled": "True"
+        }
+    ],
+    "DepthStencilState":
+    {
+        "DepthEnable": "True",
+        "DepthWriteMask": "One",
+        "DepthFunc": "LessEqual",
+        "StencilEnable": "False"
+    },
+    "RasterState":
+    {
+        "FillMode": "Solid",
+        "CullMode": "None",
+        "FrontFace": "CounterClockwise"
+    },
+    "VertexFormat":
+    [
+        "Vec4",
+        "Vec4",
+        "Vec4"
+    ],
+    "UseGlobalTextures": "True"
+}

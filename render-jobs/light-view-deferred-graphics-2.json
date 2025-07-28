@@ -1,0 +1,78 @@
+{
+    "Type": "Graphics",
+    "PassType": "Mesh Graphics",
+    "Shader": "light-view-deferred-graphics.shader",
+    "Attachments": [
+        {
+            "Name" : "Light View Clip Space Position Output 2",
+            "Type": "TextureInputOutput",
+            "ParentJobName": "Light View Skin Mesh Graphics 2"
+        },
+        {
+            "Name" : "Light View World Position Output 2",
+            "Type": "TextureInputOutput",
+            "ParentJobName": "Light View Skin Mesh Graphics 2"
+        },
+        {
+            "Name" : "Light View Moments Output 2",
+            "Type": "TextureInputOutput",
+            "ParentJobName": "Light View Skin Mesh Graphics 2"
+        }
+        
+    ],
+    "ShaderResources": [
+        {
+            "name" : "shadowUniformBuffer",
+            "type": "buffer",
+            "shader_stage" : "vertex",
+            "usage": "read_only_storage",
+            "external": "true"
+        },
+        {
+            "name" : "staticMeshModelMatrices",
+            "type": "buffer",
+            "shader_stage" : "vertex",
+            "usage": "read_only_storage",
+            "external": "true"
+        },
+        {
+            "name" : "lightViewDeferredConstantBuffer0",
+            "type": "buffer",
+            "shader_stage" : "all",
+            "usage": "constant_buffer",
+            "size": 64,
+            "data": 
+            [
+                {   
+                    "type": "float",
+                    "value": 3.0
+                }
+            ]
+        }
+    ],
+    "BlendStates": [
+        {
+            "Enabled": "True"
+        }
+    ],
+    "DepthStencilState":
+    {
+        "DepthEnable": "True",
+        "DepthWriteMask": "One",
+        "DepthFunc": "LessEqual",
+        "StencilEnable": "False"
+    },
+    "RasterState":
+    {
+        "FillMode": "Solid",
+        "CullMode": "None",
+        "FrontFace": "CounterClockwise"
+    },
+    "VertexFormat":
+    [
+        "Vec4",
+        "Vec4",
+        "Vec4"
+    ],
+    "UseGlobalTextures": "True"
+}

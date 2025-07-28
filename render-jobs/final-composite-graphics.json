@@ -1,0 +1,88 @@
+{
+    "Type": "Graphics",
+    "PassType": "Full Triangle Graphics",
+    "Shader": "final-composite-graphics.shader",
+    "Attachments": [
+        {
+            "Name": "Composited Output",
+            "Type": "TextureOutput",
+            "Format": "rgba32float"
+        },
+
+        
+        {
+            "Name" : "Diffuse Lighting Output",
+            "Type": "TextureInput",
+            "ParentJobName": "Lighting Graphics"
+        },
+        {
+            "Name" : "Specular Lighting Output",
+            "Type": "TextureInput",
+            "ParentJobName": "Lighting Graphics"
+        },
+        {
+            "Name" : "Ambient Lighting Output",
+            "Type": "TextureInput",
+            "ParentJobName": "Lighting Graphics"
+        },
+        {
+            "Name" : "Albedo Output",
+            "Type": "TextureInput",
+            "ParentJobName": "Skin Mesh From Compute Graphics"
+        },
+        {
+            "Name" : "Bilateral Filtered Ambient Occlusion Output",
+            "Type": "TextureInput",
+            "ParentJobName": "Bilateral Filter Ambient Occlusion Graphics"
+        },
+        {
+            "Name" : "Bilateral Filtered Shadow Output",
+            "Type": "TextureInput",
+            "ParentJobName": "Bilateral Filter Shadow Graphics"
+        },
+        {
+            "Name" : "Decal Output",
+            "Type": "TextureInput",
+            "ParentJobName": "Shadow Graphics"
+        },
+        {
+            "Name" : "Sky Output",
+            "Type": "TextureInput",
+            "ParentJobName": "Atmosphere Graphics"
+        },
+        {
+            "Name" : "Temporal Accumulated Indirect Lighting Output",
+            "Type": "TextureInput",
+            "ParentJobName": "Temporal Accumulation Graphics"
+        }
+    ],
+    "ShaderResources": [
+        
+        
+    ],
+    "BlendStates": [
+        {
+            "Enabled": "True"
+        }
+    ],
+    "DepthStencilState":
+    {
+        "DepthEnable": "True",
+        "DepthWriteMask": "One",
+        "DepthFunc": "LessEqual",
+        "StencilEnable": "False"
+    },
+    "RasterState":
+    {
+        "FillMode": "Solid",
+        "CullMode": "None",
+        "FrontFace": "CounterClockwise"
+    },
+    "VertexFormat":
+    [
+        "Vec4",
+        "Vec4",
+        "Vec4"
+    ],
+    "UseGlobalTextures": "True"
+}

@@ -1,0 +1,103 @@
+{
+    "Type": "Graphics",
+    "PassType": "Full Triangle",
+    "Shader": "bilateral-filter-variance-graphics.shader",
+    "Attachments": [
+        {
+            "Name": "Filtered Indirect Diffuse Output",
+            "Type": "TextureOutput",
+            "Format": "rgba32float",
+            "ScaleWidth": 0.5,
+            "ScaleHeight": 0.5
+        },
+        {
+            "Name": "Variance Diffuse Output",
+            "Type": "TextureOutput",
+            "Format": "rgba32float",
+            "ScaleWidth": 0.5,
+            "ScaleHeight": 0.5
+        },
+
+
+        
+        {
+            "Name" : "Indirect Diffuse Lighting Output",
+            "Type": "TextureInput",
+            "ParentJobName": "Decode Indirect Diffuse And Ambient Occlusion Graphics"
+        },
+        {
+            "Name" : "Indirect Diffuse Moment Output",
+            "Type": "TextureInput",
+            "ParentJobName": "Decode Indirect Diffuse And Ambient Occlusion Graphics"
+        },
+        {
+            "Name" : "Previous Indirect Diffuse Moment Output",
+            "Type": "TextureInput",
+            "ParentJobName": "Copy Render Targets"
+        },
+
+        {
+            "Name" : "Normal Output",
+            "Type": "TextureInput",
+            "ParentJobName": "Skin Mesh From Compute Graphics"
+        },
+        {
+            "Name": "Motion Vector Output",
+            "Type": "TextureInput",
+            "ParentJobName": "Skin Mesh From Compute Graphics"
+        },
+        {
+            "Name" : "Ambient Occlusion Output",
+            "Type": "TextureInput",
+            "ParentJobName": "Ambient Occlusion Graphics"
+        }
+        
+        
+        
+    ],
+    "ShaderResources": [
+        {
+            "name" : "filterConstantBuffer",
+            "type": "buffer",
+            "shader_stage" : "all",
+            "usage": "constant_buffer",
+            "size": 64,
+            "data": 
+            [
+                {   
+                    "type": "float",
+                    "value": 1.0
+                },
+                {   
+                    "type": "float",
+                    "value": 0.1
+                }
+            ]
+        }
+    ],
+    "BlendStates": [
+        {
+            "Enabled": "True"
+        }
+    ],
+    "DepthStencilState":
+    {
+        "DepthEnable": "True",
+        "DepthWriteMask": "One",
+        "DepthFunc": "LessEqual",
+        "StencilEnable": "False"
+    },
+    "RasterState":
+    {
+        "FillMode": "Solid",
+        "CullMode": "None",
+        "FrontFace": "CounterClockwise"
+    },
+    "VertexFormat":
+    [
+        "Vec4",
+        "Vec4",
+        "Vec4"
+    ],
+    "UseGlobalTextures": "True"
+}

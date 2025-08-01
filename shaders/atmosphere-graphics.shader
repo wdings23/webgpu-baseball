@@ -14,8 +14,8 @@ const C_RAYLEIGH: vec3<f32> =          (vec3<f32>(5.802f, 13.558f, 33.100f) * 1e
 const C_MIE: vec3<f32> =               (vec3<f32>(3.996f,  3.996f,  3.996f) * 1e-6f);
 const C_OZONE: vec3<f32> =             (vec3<f32>(0.650f,  1.881f,  0.085f) * 1e-6f);
 
-const ATMOSPHERE_DENSITY: f32 =  0.2f;
-const EXPOSURE: f32 =            20.0f;
+const ATMOSPHERE_DENSITY: f32 =  1.0f;
+const EXPOSURE: f32 =            15.0f;
 
 // -------------------------------------
 // Math
@@ -318,9 +318,9 @@ fn fs_main(in: VertexOutput) -> FragmentOutput
         defaultUniformBuffer.mLightRadiance.xyz, 
         transmittance);
 
-    output.colorOutput.x = ret.radiance.x * ret.transmittance.x;
-    output.colorOutput.y = ret.radiance.y * ret.transmittance.y;
-    output.colorOutput.z = ret.radiance.z * ret.transmittance.z;
+    output.colorOutput.x = ret.radiance.x;
+    output.colorOutput.y = ret.radiance.y;
+    output.colorOutput.z = ret.radiance.z;
     output.colorOutput.w = 1.0f;
 
 	ret = IntegrateScattering(
@@ -331,9 +331,9 @@ fn fs_main(in: VertexOutput) -> FragmentOutput
         defaultUniformBuffer.mLightRadiance.xyz, 
         transmittance);
 
-	output.sunLightOutput.x = ret.radiance.x * ret.transmittance.x;
-	output.sunLightOutput.y = ret.radiance.y * ret.transmittance.y;
-	output.sunLightOutput.z = ret.radiance.z * ret.transmittance.z;
+	output.sunLightOutput.x = ret.transmittance.x;
+	output.sunLightOutput.y = ret.transmittance.y;
+	output.sunLightOutput.z = ret.transmittance.z;
 	output.sunLightOutput.w = 1.0f;
 
 	uniformData.mLastLightDirection = defaultUniformBuffer.mLightDirection;

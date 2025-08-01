@@ -1,0 +1,48 @@
+{
+    "Type": "Graphics",
+    "PassType": "Full Triangle",
+    "Shader": "sky-motion-vector-graphics.shader",
+    "Attachments": [
+        {
+            "Name": "Sky Motion Vector Output",
+            "Type": "TextureOutput",
+            "Format": "rgba32float"
+        },
+
+        {
+            "Name" : "Albedo Output",
+            "Type": "TextureInput",
+            "ParentJobName": "Skin Mesh From Compute Graphics"
+        }
+        
+        
+    ],
+    "ShaderResources": [
+        
+    ],
+    "BlendStates": [
+        {
+            "Enabled": "True"
+        }
+    ],
+    "DepthStencilState":
+    {
+        "DepthEnable": "True",
+        "DepthWriteMask": "One",
+        "DepthFunc": "LessEqual",
+        "StencilEnable": "False"
+    },
+    "RasterState":
+    {
+        "FillMode": "Solid",
+        "CullMode": "None",
+        "FrontFace": "CounterClockwise"
+    },
+    "VertexFormat":
+    [
+        "Vec4",
+        "Vec4",
+        "Vec4"
+    ],
+    "UseGlobalTextures": "True"
+}

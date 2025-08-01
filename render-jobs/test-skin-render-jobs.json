@@ -75,6 +75,18 @@
             "PassType": "Draw Meshes"
         },
         {
+            "Name": "Sky Motion Vector Graphics",
+            "Pipeline": "sky-motion-vector-graphics.json",
+            "Type": "Graphics",
+            "PassType": "Full Triangle"
+        },
+        {
+            "Name": "Cloud Graphics",
+            "Pipeline": "cloud-graphics.json",
+            "Type": "Graphics",
+            "PassType": "Full Triangle"
+        },
+        {
             "Name": "Shadow Graphics",
             "Pipeline": "shadow-graphics.json",
             "Type": "Graphics",
@@ -114,6 +126,12 @@
         {
             "Name": "Bilateral Filter Shadow Graphics",
             "Pipeline": "bilateral-filter-shadow-graphics.json",
+            "Type": "Graphics",
+            "PassType": "Full Triangle"
+        },
+        {
+            "Name": "Bilateral Filter Cloud Graphics",
+            "Pipeline": "bilateral-filter-cloud-graphics.json",
             "Type": "Graphics",
             "PassType": "Full Triangle"
         },

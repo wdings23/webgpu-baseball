@@ -377,6 +377,9 @@ void initGraphics()
     configureSurface();
     
     wgpu::SamplerDescriptor samplerDesc = {};
+    samplerDesc.addressModeU = wgpu::AddressMode::Repeat;
+    samplerDesc.addressModeV = wgpu::AddressMode::Repeat;
+    samplerDesc.addressModeW = wgpu::AddressMode::Repeat;
     gSampler = device.CreateSampler(&samplerDesc);
 
     Render::CRenderer::CreateDescriptor desc = {};

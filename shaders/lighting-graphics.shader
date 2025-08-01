@@ -79,6 +79,9 @@ var albedoTexture: texture_2d<f32>;
 var skyConvolutionTexture: texture_2d<f32>;
 
 @group(0) @binding(4)
+var sunLightColorTexture: texture_2d<f32>;
+
+@group(0) @binding(5)
 var animMeshMaskTexture: texture_2d<f32>;
 
 @group(1) @binding(0)
@@ -193,7 +196,14 @@ fn pbr(worldPosition: vec3f,
 {
     let albedo: vec3f = vec3f(1.0f, 1.0f, 1.0f);
 
-    let sunLightColor: vec3<f32> = vec3<f32>(7.0f, 7.0f, 7.0f) * 0.5f;
+    //let sunLightColor: vec3<f32> = vec3<f32>(7.0f, 7.0f, 7.0f) * 0.5f;
+    let uv: vec2<f32> = octahedronMap2(normal.xyz);
+    let sunLightColor: vec3<f32> = textureSample(
+        sunLightColorTexture,
+        textureSampler,
+        uv.xy
+    ).xyz;
+
     let view: vec3f = normalize(defaultUniformBuffer.mCameraPosition.xyz - worldPosition);
 
     // calculate reflectance at normal incidence; if dia-electric (like plastic) use F0 
@@ -211,7 +221,7 @@ fn pbr(worldPosition: vec3f,
         // calculate per-light radiance
         let L: vec3<f32> = normalize(vec3<f32>(0.2f, 1.0f, 0.0f));
         let H: vec3f = normalize(view + L);
-        let radiance: vec3f = sunLightColor; // * attenuation;
+        let radiance: vec3f = sunLightColor * 4.0f; // * attenuation;
 
         // Cook-Torrance BRDF
         let NDF: f32 = DistributionGGX(normal, H, roughness);   

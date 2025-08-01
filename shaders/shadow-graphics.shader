@@ -218,10 +218,12 @@ fn getShadow(
         );
     }
 
-    
-
     var fRet: f32 = 1.0f;
-    if(/*lightClipSpace.z - 0.003f > sampleLightViewClipCoord.z &&*/ 
+    if(sampleLightViewClipCoord.w <= 0.0f)
+    {
+        fRet = 1.0f;
+    }
+    else if(
         lightClipSpace.x >= 0.0f && lightClipSpace.x <= 1.0f && 
         lightClipSpace.y >= 0.0f && lightClipSpace.y <= 1.0f)
     {

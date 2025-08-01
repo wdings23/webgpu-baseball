@@ -54,6 +54,16 @@
             "Name" : "Temporal Accumulated Indirect Lighting Output",
             "Type": "TextureInput",
             "ParentJobName": "Temporal Accumulation Graphics"
+        },
+        {
+            "Name" : "Bilateral Filtered Cloud Output",
+            "Type": "TextureInput",
+            "ParentJobName": "Bilateral Filter Cloud Graphics"
+        },
+        {
+            "Name" : "Sun Light Output",
+            "Type": "TextureInput",
+            "ParentJobName": "Atmosphere Graphics"
         }
     ],
     "ShaderResources": [

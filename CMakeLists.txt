@@ -91,6 +91,12 @@ if(EMSCRIPTEN)
     #"-sUSE_PTHREADS=1"
     "-sASSERTIONS"
     "-sSTACK_SIZE=1048576")
+elseif(WIN32)
+  find_package(CURL REQUIRED)
+  add_compile_definitions(_CRT_SECURE_NO_WARNINGS)
+  set(DAWN_FETCH_DEPENDENCIES ON)
+  add_subdirectory("dawn" EXCLUDE_FROM_ALL)
+  target_link_libraries(baseball PRIVATE dawn::webgpu_dawn glfw webgpu_glfw CURL::libcurl)
 else()
   find_package(CURL REQUIRED)
 

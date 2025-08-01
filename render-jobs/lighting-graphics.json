@@ -40,6 +40,11 @@
             "ParentJobName": "Sky Convolution Graphics"
         },
         {
+            "Name" : "Sun Light Output",
+            "Type": "TextureInput",
+            "ParentJobName": "Atmosphere Graphics"
+        },
+        {
             "Name" : "Mask And Clip Space Output",
             "Type": "TextureInput",
             "ParentJobName": "Skin Mesh From Compute Graphics"

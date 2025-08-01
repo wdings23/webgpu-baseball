@@ -24,7 +24,7 @@ static std::map<std::string, uint32_t> saLoadFileNames;
 #if defined(__EMSCRIPTEN__)
 #define ZIP_ARCHIVE_FILE_PATH "assets/total-assets.zip"
 #else 
-#define ZIP_ARCHIVE_FILE_PATH "D:\\test\\github-projects\\test_assets\\total-assets.zip"
+#define ZIP_ARCHIVE_FILE_PATH "..\\total-assets.zip"
 #endif // __EMSCRIPTEN__
 
 namespace Loader
@@ -461,6 +461,8 @@ namespace Loader
         }
         mz_zip_writer_finalize_archive(&zipArchive);
         mz_zip_writer_end(&zipArchive);
+
+        DEBUG_PRINTF("wrote to %s\n", outputFilePath.c_str());
 
         return zipArchive.m_archive_size;
     }

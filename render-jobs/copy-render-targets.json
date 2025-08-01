@@ -46,7 +46,16 @@
             "Type": "TextureOutput",
             "ParentJobName": "TAA Graphics",
             "ParentName": "TAA Output"
+        },
+        {
+            "Name": "Previous Cloud Output",
+            "Type": "TextureOutput",
+            "ParentJobName": "Cloud Graphics",
+            "ParentName": "Cloud Output",
+            "ScaleWidth": 0.5,
+            "ScaleHeight": 0.5
         }
+
 
 
 

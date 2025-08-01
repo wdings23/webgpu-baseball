@@ -1331,9 +1331,9 @@ void CApp::updateMeshModelTransforms()
     aLightInfo[3].mPosition = float4(maPlayerLocalPositions[1] + aPositions[1] + float3(0.0f, 2.5f, 2.0f), 1.0f);
     aLightInfo[4].mPosition = float4(maPlayerLocalPositions[1] + aPositions[1] + float3(0.0f, 2.0f, -2.0f), 1.0f);
 
-    float4 lightRadiance = float4(10.0f, 10.0f, 10.0f, 10.0f);
+    float4 lightRadiance = float4(5.0f, 5.0f, 5.0f, 5.0f);
 
-    aLightInfo[0].mRadiance = float4(20000.0f, 20000.0f, 20000.0f, 1.0f);
+    aLightInfo[0].mRadiance = float4(5000.0f, 5000.0f, 5000.0f, 1.0f);
     aLightInfo[1].mRadiance = lightRadiance;
     aLightInfo[2].mRadiance = lightRadiance;
     aLightInfo[3].mRadiance = lightRadiance;

@@ -58,6 +58,8 @@ struct DefaultUniformData
 
     float4 mLightRadiance;
     float4 mLightDirection;
+
+    float4x4 mInverseViewProjectionMatrix;
 };
 
 // Callback function to write data to file
@@ -299,6 +301,8 @@ namespace Render
         float3 lightDirection = normalize(float3(1.0f, 1.0f, 0.0f));
         defaultUniformData.mLightDirection = float4(lightDirection);
         defaultUniformData.mLightRadiance = float4(2.0f, 2.0f, 2.0f, 1.0f);
+
+        defaultUniformData.mInverseViewProjectionMatrix = invert(*desc.mpViewProjectionMatrix);
 
         // update default uniform buffer
         mpDevice->GetQueue().WriteBuffer(
@@ -1050,6 +1054,9 @@ namespace Render
 
         //wgpu::Texture& swapChainTexture = maRenderJobs["Decode Indirect Diffuse And Ambient Occlusion Graphics"]->mOutputImageAttachments["Indirect Diffuse Lighting Output"];
         //wgpu::Texture& swapChainTexture = maRenderJobs["Decode Indirect Diffuse And Ambient Occlusion Graphics"]->mOutputImageAttachments["Ambient Occlusion Output"];
+
+        //wgpu::Texture& swapChainTexture = maRenderJobs["Cloud Graphics"]->mOutputImageAttachments["Cloud Output"];
+        //wgpu::Texture& swapChainTexture = maRenderJobs["Bilateral Filter Cloud Graphics"]->mOutputImageAttachments["Bilateral Filtered Cloud Output"];
 
         //wgpu::Texture& swapChainTexture = maRenderJobs["Variance Bilateral Filter Indirect Lighting Graphics"]->mOutputImageAttachments["Filtered Indirect Diffuse Output"];
         wgpu::Texture& swapChainTexture = maRenderJobs["TAA Graphics"]->mOutputImageAttachments["TAA Output"];

@@ -54,6 +54,12 @@ var skyTexture: texture_2d<f32>;
 @group(0) @binding(8)
 var indirectLightingTexture: texture_2d<f32>;
 
+@group(0) @binding(9)
+var cloudTexture: texture_2d<f32>;
+
+@group(0) @binding(10)
+var sunLightTexture: texture_2d<f32>;
+
 @group(1) @binding(0)
 var<uniform> defaultUniformBuffer: DefaultUniformData;
 
@@ -159,10 +165,32 @@ fn fs_main(in: VertexOutput) -> FragmentOutput
             i32(skyUV.x * f32(skyTextureSize.x)),
             i32(skyUV.y * f32(skyTextureSize.y))
         );
-        out.mColor = textureLoad(
+        var skyColor: vec4<f32> = textureLoad(
             skyTexture,
             skyImageCoord,
             0
+        );
+        let cloudTextureSize: vec2<u32> = textureDimensions(cloudTexture);
+        let cloudImageCoord: vec2<i32> = vec2<i32>(
+            i32(in.uv.x * f32(cloudTextureSize.x)),
+            i32(in.uv.y * f32(cloudTextureSize.y))
+        );
+        let cloudRadiance: vec4<f32> = textureLoad(
+            cloudTexture,
+            cloudImageCoord,
+            0
+        );
+        let sunLight: vec4<f32> = textureLoad(
+            sunLightTexture,
+            vec2<i32>(0, 0),
+            0
+        );
+        let fOneMinusDensity: f32 = 1.0f - clamp(cloudRadiance.w, 0.0f, 1.0f); 
+        out.mColor = vec4<f32>(
+            cloudRadiance.x * sunLight.x + fOneMinusDensity * skyColor.x,
+            cloudRadiance.y * sunLight.y + fOneMinusDensity * skyColor.y,
+            cloudRadiance.z * sunLight.z + fOneMinusDensity * skyColor.z,
+            1.0f
         );
         
         //out.mColor = vec4<f32>(

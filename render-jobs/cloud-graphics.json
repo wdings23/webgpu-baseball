@@ -1,0 +1,65 @@
+{
+    "Type": "Graphics",
+    "PassType": "Full Triangle",
+    "Shader": "cloud-graphics.shader",
+    "Attachments": [
+        {
+            "Name" : "Cloud Output",
+            "Type": "TextureOutput",
+            "Format": "rgba32float",
+            "ScaleWidth": 0.5,
+            "ScaleHeight": 0.5
+        },
+        
+        {
+            "Name" : "World Position Output",
+            "Type": "TextureInput",
+            "ParentJobName": "Skin Mesh From Compute Graphics"
+        },
+        {
+            "Name" : "Previous Cloud Output",
+            "Type": "TextureInput",
+            "ParentJobName": "Copy Render Targets"
+        },
+        {
+            "Name" : "Sky Motion Vector Output",
+            "Type": "TextureInput",
+            "ParentJobName": "Sky Motion Vector Graphics"
+        }
+        
+    ],
+    "ShaderResources": [
+        { 
+            "name" : "blueNoiseTexture",
+            "type" : "texture",
+            "shader_stage" : "all",
+            "usage": "texture",
+            "external": "true"
+        }
+    ],
+    "BlendStates": [
+        {
+            "Enabled": "False"
+        }
+    ],
+    "DepthStencilState":
+    {
+        "DepthEnable": "True",
+        "DepthWriteMask": "One",
+        "DepthFunc": "LessEqual",
+        "StencilEnable": "False"
+    },
+    "RasterState":
+    {
+        "FillMode": "Solid",
+        "CullMode": "None",
+        "FrontFace": "CounterClockwise"
+    },
+    "VertexFormat":
+    [
+        "Vec4",
+        "Vec4",
+        "Vec4"
+    ],
+    "UseGlobalTextures": "True"
+}
